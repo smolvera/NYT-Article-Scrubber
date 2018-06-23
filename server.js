@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/nyt-article-scrubber"));
+  app.use(express.static("client/build"));
 }
 // Add routes, both API and view
 app.use(routes);
@@ -19,7 +19,7 @@ app.use(routes);
     // add this when ready to deploy to heroku
     // Connect to the Mongo DB
 var MONGODB_URI =process.env.MONGODB_URI || "mongodb://localhost/nytreact";
-// var MONGODB_URI=process.env.MONGODB_URI || 
+// var MONGODB_URI=process.env.MONGODB_URI ||
 // "mongodb://<dbuser>:<dbpassword>@ds259250.mlab.com:59250/heroku_46sjb309";
 mongoose.Promise = global.Promise;
 
