@@ -18,9 +18,9 @@ app.use(routes);
 
     // add this when ready to deploy to heroku
     // Connect to the Mongo DB
-var MONGODB_URI =process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds259250.mlab.com:59250/heroku_46sjb309";
-// var MONGODB_URI=process.env.MONGODB_URI || "mongodb://localhost/nytreact";
-
+var MONGODB_URI =process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+// var MONGODB_URI=process.env.MONGODB_URI || 
+// "mongodb://<dbuser>:<dbpassword>@ds259250.mlab.com:59250/heroku_46sjb309";
 mongoose.Promise = global.Promise;
 
   mongoose.connect(MONGODB_URI,function(error){
