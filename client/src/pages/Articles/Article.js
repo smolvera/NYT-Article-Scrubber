@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SaveBtn from "../../components/SaveBtn";
-// import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -22,17 +21,15 @@ class Article extends Component {
     endYear: "",
   };
 
-  //Save article to DB on click
+  
   populateDatabase = id => {
-    console.log("I'm triggered ", id);
-    let result = this.prepareArticle(id)
-    console.log(result);  
-    // console.log("Saving Article");  
+    // console.log("I'm triggered ", id);
+    let result = this.prepareArticle(id) 
     API.saveArticle (result)
     
   };
 
-   //Helper function to isolate data specified in the schema    
+   
   prepareArticle = (id) => {
     console.log("Let me find article");
     let articlesArray = this.state.articles;
@@ -49,13 +46,13 @@ class Article extends Component {
       }
   }
   
-  //Axios HTTP call to NY Times API
+  
   findArticles = query => {
     const queryURL = BASEURL + query;
     return axios.get(queryURL)
   }
 
-   //Save user's input 
+ 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -63,7 +60,7 @@ class Article extends Component {
     });
   };
 
-  //Handle form submission on click
+ 
   handleFormSubmit = event => {
      event.preventDefault();
      const fullQuery = this.state.topic + "&begin_date=" + this.state.startYear + "0101&end_date="+   this.state.endYear + "0101";
@@ -74,12 +71,12 @@ class Article extends Component {
       .catch(err => console.log(err));
   };
 
-  //Render function
+  
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-12">
             {/* <Jumbotron>
               <h1>New York Times Article Scrubber</h1>
             </Jumbotron> */}
@@ -111,7 +108,7 @@ class Article extends Component {
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
+          <Col size="md-12">
             {/* <Jumbotron>
               <h1>Results</h1>
             </Jumbotron> */}

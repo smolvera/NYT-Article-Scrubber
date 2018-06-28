@@ -1,7 +1,10 @@
 const db = require("../models");
-// additional stuff add here?
+const axios = require("axios");
+const APIKEY = "5ac27dfb9b67450ea140efa81b7f9637";
+const BASEURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
+  APIKEY + "&q=";
 
-// Defining methods for the booksController
+
 module.exports = {
   findAll: function(req, res) {
     console.log("correctly added");
